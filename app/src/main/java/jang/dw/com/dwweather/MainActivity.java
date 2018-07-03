@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         //2018.07.03
         Init();
-
+        //2018.07.03 edit from github
     }
 
     public void Init(){
