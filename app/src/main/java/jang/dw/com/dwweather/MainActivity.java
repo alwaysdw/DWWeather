@@ -13,11 +13,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate()");
 
-
-
         //2018.07.03
         Init();
         //2018.07.03 edit from github
+
     }
 
     public void Init(){
