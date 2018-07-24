@@ -1,11 +1,18 @@
 package jang.dw.com.dwweather;
 
+import android.graphics.Color;
 import android.os.AsyncTask;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.GridLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button Weathersync,WeatherSsync;
     private TextView temperature, pressure, humidity,result;
 
+    ListView listview = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +59,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //2018.07.03
         Init();
+
+        //2018.07.24
+        InitAdapter();
 
         //2018.07.03 edit from github
 
@@ -86,6 +98,64 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         result = (TextView) findViewById(R.id.result);
         Weathersync.setOnClickListener(this);
         WeatherSsync.setOnClickListener(this);
+    }
+
+    public void InitAdapter(){
+
+        /*final String[] items ={"WGHITE", "RED", "GREEN", "BLUE" , "BLACK" };
+        ArrayAdapter adapter = new ArrayAdapter(this, R.layout.weather_main, items);
+        listview = (ListView) findViewById(R.id.drawer_menulist);
+        listview.setAdapter(adapter);
+
+        listview.setOnItemClickListener(new ListView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView parent, View v, int position, long id) {
+
+                TextView contentTextview = (TextView) findViewById(R.id.drawer_content) ;
+
+                switch (position) {
+                    case 0 : // WHITE
+                        contentTextview.setBackgroundColor(Color.rgb(0xFF, 0xFF, 0xFF)) ;
+                        contentTextview.setTextColor(Color.rgb(0x00, 0x00, 0x00)) ;
+                        contentTextview.setText("WHITE") ;
+                        break ;
+                    case 1 : // RED
+                        contentTextview.setBackgroundColor(Color.rgb(0xFF, 0x00, 0x00)) ;
+                        contentTextview.setTextColor(Color.rgb(0xFF, 0xFF, 0xFF)) ;
+                        contentTextview.setText("RED") ;
+                        break ;
+                    case 2 : // GREEN
+                        contentTextview.setBackgroundColor(Color.rgb(0x00, 0xFF, 0x00)) ;
+                        contentTextview.setTextColor(Color.rgb(0x00, 0x00, 0x00)) ;
+                        contentTextview.setText("GREEN") ;
+                        break ;
+                    case 3 : // BLUE
+                        contentTextview.setBackgroundColor(Color.rgb(0x00, 0x00, 0xFF)) ;
+                        contentTextview.setTextColor(Color.rgb(0xFF, 0xFF, 0xFF)) ;
+                        contentTextview.setText("BLUE") ;
+                        break ;
+                    case 4 : // BLACK
+                        contentTextview.setBackgroundColor(Color.rgb(0x00, 0x00, 0x00)) ;
+                        contentTextview.setTextColor(Color.rgb(0xFF, 0xFF, 0xFF)) ;
+                        contentTextview.setText("BLACK") ;
+                        break ;
+                }
+
+
+            }
+        });
+
+
+        listview.setOnItemClickListener(new ListView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
+                drawer.closeDrawer(Gravity.LEFT);
+            }
+        });*/
+
+
+
     }
 
     @Override
